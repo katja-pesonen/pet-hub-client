@@ -8,6 +8,7 @@ import PetDetails from './pages/PetDetails';
 import AllPets from './pages/AllPets';
 import UserProfile from './pages/UserProfile';
 import ErrorPage from './pages/ErrorPage';
+import CreateNewPet from './pages/CreateNewPet';
 
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
     <Route path="/signup" element={ <SignupPage />} />
     <Route path="/login" element={ <LoginPage />} />
     <Route path="/pets" element={ <AllPets />} />
-    <Route path="/user/profile" element={ <UserProfile  />} />
+    <Route path="/user/profile" element={ <UserProfile />} />
+    <Route path="/pets/create" element={ <CreateNewPet />} />
     <Route path="/pets/:id" element={ <PetDetails />} />
     <Route path="*" element={ <ErrorPage />} />
   </Routes>
