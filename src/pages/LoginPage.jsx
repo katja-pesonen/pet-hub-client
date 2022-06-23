@@ -3,26 +3,42 @@ import { Box, Button, Input, InputWrapper, PasswordInput, Title } from '@mantine
 import { useForm } from '@mantine/hooks'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SessionContext } from '../contexts/SessionContext'
+import { login } from '../utils/helper'
 
 
 function LoginPage() {
   const navigate = useNavigate()
-  // const { authenticateUser } = useContext(SessionContext)
+  const { authenticateUser } = useContext(SessionContext)
   const form = useForm({
     initialValues: {
-      username: '',
+      email: '',
       password: '',
     },
   })
 
-    // const logUser not done yet... to be completed
+  const logUser = async credentials => {
+    try {
+      const response = await login(credentials)
+      console.log(response)
+      if (response.status === 'KO') {
+        throw new Error(response.message)
+      } else {
+        authenticateUser(response.token)
+        navigate("/user/profile")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   const handleSubmit = values => {
-    // logUser(values)
+    logUser(values)
   }
 
   return (
-    <div>
+    
     <Box>
       <Title>Login Page</Title>
       <form onSubmit={form.onSubmit(handleSubmit)}>
@@ -30,7 +46,6 @@ function LoginPage() {
           required
           label='Email'
           description='Enter your email'
-          {...form.getInputProps('email')}
         >
           <Input {...form.getInputProps('email')} />
         </InputWrapper>
@@ -42,7 +57,7 @@ function LoginPage() {
         <Button type='submit'>Login</Button>
       </form>
     </Box>
-    </div>
+   
   )
 }
 

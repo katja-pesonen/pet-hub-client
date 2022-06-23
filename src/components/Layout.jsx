@@ -2,6 +2,7 @@ import React from 'react'
 import { Anchor, AppShell, Navbar } from '@mantine/core'
 import { NavLink } from 'react-router-dom'
 import logoPethub from '../assets/PetHubLogo.png';
+import { SessionContext } from '../contexts/SessionContext'
 
 
 function Layout({ children }) {

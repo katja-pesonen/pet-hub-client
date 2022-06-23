@@ -10,6 +10,7 @@ function SignupPage() {
   const form = useForm({
     initialValues: {
       username: '',
+      email: '',
       password: '',
     },
   })
@@ -17,6 +18,7 @@ function SignupPage() {
   const createUser = async newUser => {
     try {
       const response = await signup(newUser)
+      console.log(response, 'createUser')
 
       if (response.status === 'KO') {
         throw new Error(response.message)
@@ -42,25 +44,25 @@ function SignupPage() {
           required
           label='Username'
           description='Create a username'
-          {...form.getInputProps('username')}
         >
           <Input {...form.getInputProps('username')} />
         </InputWrapper>
 
+
         <InputWrapper
-          required
-          unique 
+          required 
           label='Email'
           description='Please enter your email'
-          {...form.getInputProps('email')}
         >
           <Input {...form.getInputProps('email')} />
         </InputWrapper>
+
 
         <InputWrapper 
           required label='Password' description='Please create a password'>
           <PasswordInput {...form.getInputProps('password')} />
         </InputWrapper>
+
 
         <Button type='submit'>Submit</Button>
       </form>
