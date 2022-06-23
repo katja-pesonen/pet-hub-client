@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Button, Input, InputWrapper, PasswordInput, Title } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { useNavigate } from 'react-router-dom'
+import { signup } from '../utils/helper'
 
 
 function SignupPage() {
@@ -13,10 +14,23 @@ function SignupPage() {
     },
   })
 
-  // const createUser not done yet... to be completed
+  const createUser = async newUser => {
+    try {
+      const response = await signup(newUser)
+
+      if (response.status === 'KO') {
+        throw new Error(response.message)
+      }
+
+      navigate('/login')
+    } catch (error) {
+      form.setErrors({ username: error.message })
+    }
+  }
+
 
   const handleSubmit = values => {
-    // createUser(values)
+    createUser(values)
   }
 
   return (

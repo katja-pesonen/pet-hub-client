@@ -19,7 +19,7 @@ function Layout({ children }) {
             <Anchor
                 component={NavLink}
                 to='/'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+                style={({ isActive }) => (isActive ? { color: 'black' } : { color: 'white' })}
               >
                 HOME
               </Anchor>
