@@ -1,4 +1,4 @@
-    import React from 'react'
+    import React, { useState } from 'react'
     import { Box, Button, Input, InputWrapper, Title } from '@mantine/core'
     import { useForm } from '@mantine/form'
     import { useNavigate } from 'react-router-dom'
@@ -12,14 +12,18 @@
           name: '',
           type: '',
           age: '',
-          image: '',
           description: '',
         },
       })
+      const [image, setImage] = useState()
     
       const createPet = async newPet => {
         try {
-          const response = await creatingPet(newPet) // 
+          const formData = new FormData()
+            formData.append('values', JSON.stringify(newPet))
+            formData.append('image', image)
+         
+          const response = await creatingPet(formData) // 
           console.log(response, 'createPet')
     
           if (response.status === 'KO') {
@@ -36,12 +40,12 @@
       const handleSubmit = values => {
         createPet(values)
       }
-    
+
       return (
         <div>
             <Box>
           <Title>Create New Pet</Title>
-          <form onSubmit={form.onSubmit(handleSubmit)}>
+          <form onSubmit={form.onSubmit(handleSubmit)}  >
             <InputWrapper
               required
               label='Name'
@@ -72,7 +76,7 @@
 
             <InputWrapper 
                label='Image' description='Upload an image'>
-              <Input type="file" name="receta-img" accept=".jpg, .png" {...form.getInputProps('image')} />
+              <Input type="file" name="image" accept=".jpg, .png" onChange={(event) => setImage(event.target.files[0])} />
             </InputWrapper>
     
     
