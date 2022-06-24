@@ -19,7 +19,7 @@
     
       const createPet = async newPet => {
         try {
-          const response = await creatingPet(newPet) // <= Problem here? 
+          const response = await creatingPet(newPet) // 
           console.log(response, 'createPet')
     
           if (response.status === 'KO') {
