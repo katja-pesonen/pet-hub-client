@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from "react";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function CreateNewPet(props) {
 
@@ -8,6 +10,7 @@ function CreateNewPet(props) {
     const [age, setAge] = useState("");
     const [type, setType] = useState("");
     const [description, setDescription] = useState("");
+    
 
 
     const handleNameInput = e => setName(e.target.value);
@@ -18,9 +21,29 @@ function CreateNewPet(props) {
 
 
     const handleSubmit = (e) => {     
+      // Prevent page reload on submit
         e.preventDefault();
-        props.addNewPet({ name, type, age, description, image });
-    }
+
+        props.addNewPet({ name, type, age, description, image }); // DO I DELETE THIS??
+      // Create the body for the POST request
+    //     const body = { name, type, age, description, image };   // DO I USE  THIS PART BELOW INSTEAD??
+
+          //  const navigate = useNavigate();
+    
+    //     axios
+    //       .post("https://local...", body) 
+    //       .then((response) => {
+    //         // Reset the state
+    //         setName("");
+    //         setImage("");
+    //         setAge("");
+    //         setType("");
+    //         setDescription("");
+
+            // Navigate to the `/user/profile` page
+              //  navigate('/user/profile');
+    //       });
+     }
 
   return (
     <div>
@@ -39,10 +62,14 @@ function CreateNewPet(props) {
       <input value={age} type="text" onChange={handleAgeInput} />
 
       <label>Description</label>
-      <input value={description} type="text" onChange={handleDescriptionInput} />
+      <textarea name="description" rows="10"cols="50" placeholder="Please write something about your pet :)"
+value={description} type="text" onChange={handleDescriptionInput} />
 
       <label>Image</label>
-      <input value={image} type="text" onChange={handleImageInput} />
+      <input value={image} type="file" name="receta-img" accept=".jpg, .png" onChange={handleImageInput} />
+     {/* <label for="image-upload" class="add-image"> Choose an image to upload: </label>
+        <input type="file" name="receta-img" accept=".jpg, .png" style="display:none;">
+     */}
 
       <button type="submit">Create</button>
     </form>
