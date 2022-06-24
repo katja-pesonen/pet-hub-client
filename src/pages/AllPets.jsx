@@ -10,7 +10,7 @@ function AllPets() {
  
   useEffect(() => {                                
     axios
-      .get("https://local") // what is the url we use??????? :O
+      .get("http://localhost:5005/pets") 
       .then((response) => {
         console.log('response.data', response.data);
         setPets(response.data)

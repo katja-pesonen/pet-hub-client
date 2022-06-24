@@ -64,11 +64,23 @@
                label='Age' description='Your pets age'>
               <Input {...form.getInputProps('age')} />
             </InputWrapper>
-    </form>
-    </Box>
 
-    </div>
-  )
-}
+            <InputWrapper 
+               label='Description' description='Tell us something about your pet!'>
+              <Input {...form.getInputProps('description')} />
+            </InputWrapper>
+
+            <InputWrapper 
+               label='Image' description='Upload an image'>
+              <Input type="file" name="receta-img" accept=".jpg, .png" {...form.getInputProps('image')} />
+            </InputWrapper>
+    
+    
+            <Button type='submit'>Submit</Button>
+          </form>
+        </Box>
+        </div>
+      )
+    }
 
 export default CreateNewPet
