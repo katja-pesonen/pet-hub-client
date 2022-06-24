@@ -13,6 +13,7 @@ function HomePage() {
       <div className='allPetsSection'>
 
       </div>
+      <a href='/pets/create'>Create new pet</a>
     </div>
   </div>
   )

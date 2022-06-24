@@ -3,9 +3,11 @@ import { Anchor, AppShell, Navbar } from '@mantine/core'
 import { NavLink } from 'react-router-dom'
 import logoPethub from '../assets/PetHubLogo.png';
 import { SessionContext } from '../contexts/SessionContext'
+import { useContext } from 'react'
 
 
 function Layout({ children }) {
+  const { isAuthenticated, logout } = useContext(SessionContext)
 
   return (
     // <div>Layout</div>
@@ -17,10 +19,41 @@ function Layout({ children }) {
 
           <img src={logoPethub} alt='logo'/>
 
+          {!isAuthenticated ? (
+            <>
+
             <Anchor
                 component={NavLink}
                 to='/'
-                style={({ isActive }) => (isActive ? { color: 'black' } : { color: 'white' })}
+                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+              >
+                HOME
+              </Anchor>
+
+              <Anchor
+                component={NavLink}
+                to='/login'
+                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+              >
+                Login
+              </Anchor>
+
+              <Anchor
+                component={NavLink}
+                to='/signup'
+                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+              >
+                Signup
+              </Anchor>
+
+              </>
+          ) : (
+            <>
+
+              <Anchor
+                component={NavLink}
+                to='/'
+                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
               >
                 HOME
               </Anchor>
@@ -41,31 +74,17 @@ function Layout({ children }) {
                 My Profile
               </Anchor>
 
-              <Anchor
-                component={NavLink}
-                to='/login'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
-              >
-                Login
-              </Anchor>
-
-              <Anchor
-                component={NavLink}
-                to='/signup'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
-              >
-                Signup
-              </Anchor>
 
               <Anchor
                 component={NavLink}
                 to='/'
                 style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
-                // onClick={logout}
+                onClick={logout}
               >
                 Logout
               </Anchor>
-
+              </>
+          )}
         </Navbar>
       }
 
