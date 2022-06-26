@@ -42,3 +42,68 @@
 .appShell {
   color: white
 }
+
+
+/* // Home page  */
+.pet-card{
+  background-color: rgba(255, 255, 255, 0.4);
+  padding-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.pet-card button{
+  margin-right: 20px;
+  background-color: #4BC0C8;
+  font-size: 20px;
+  color: white;
+  height: 35px;
+  width: 300px;
+  border-radius: 15px;
+}
+.pet-card button a{
+  color: white;
+}
+.petList {
+  padding: 20px;
+  width: 40vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px; 
+}
+
+.polaroid {
+  width: 100%;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+.polaroid img{
+  border-radius: 10px 10px 0 0;
+}
+.container {
+  height: 50px;
+  text-align: center;
+  padding: 10px 20px 0 20px;
+  font-size: 15px;
+  color: black;
+}
+.container a{
+  color: black;
+}
+.container a:hover{
+  color: navy;
+}
+.all-petList {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 80px;
+  border-radius: 10px;
+  margin: 50px auto;
+  width: 70vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}

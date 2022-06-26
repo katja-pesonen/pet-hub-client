@@ -38,7 +38,7 @@ function LoginPage() {
   }
 
   return (
-    
+    <div>
     <Box>
       <Title>Login Page</Title>
       <form onSubmit={form.onSubmit(handleSubmit)}>
@@ -57,7 +57,11 @@ function LoginPage() {
         <Button type='submit'>Login</Button>
       </form>
     </Box>
-   
+    <br />
+      <div>
+      <Button><a href="/signup">Don't have account yet? Signup</a></Button>
+      </div>
+    </div>
   )
 }
 

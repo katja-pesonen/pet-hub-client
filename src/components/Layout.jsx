@@ -63,7 +63,7 @@ function Layout({ children }) {
                 to='/pets'
                 style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
               >
-                Pet Profile
+                All Pets Page
               </Anchor>
 
               <Anchor

@@ -75,6 +75,7 @@
             </InputWrapper>
 
             <InputWrapper 
+               required
                label='Image' description='Upload an image'>
               <Input type="file" name="image" accept=".jpg, .png" onChange={(event) => setImage(event.target.files[0])} />
             </InputWrapper>
