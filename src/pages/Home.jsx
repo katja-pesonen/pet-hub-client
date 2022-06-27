@@ -2,6 +2,7 @@ import React from 'react'
 import horseImage from "../assets/horse-running.jpg"
 import axios from 'axios';
 import { useState, useEffect } from "react";    
+import { Link } from 'react-router-dom';
 
 function HomePage() {
 
@@ -36,7 +37,7 @@ function HomePage() {
         {pets.map((pet) => (
                 <div className="polaroid" key={pet._id}>
                     <img src={pet.image} alt='Pet' style={{width: '100%'}}/>
-                    <div className="container"><a href={`/pets/${pet._id}`}>{pet.name}</a></div>                    
+                    <div className="container"><Link to={`/pets/${pet._id}`}>{pet.name}</Link></div>                    
                 </div>
              ))}    
         </div>

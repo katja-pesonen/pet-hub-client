@@ -34,7 +34,7 @@ function App() {
     <Route path="/pets" element={ <AllPets />} />
     <Route path="/user/profile" element={ <UserProfile />} />
     <Route path="/pets/create" element={ <CreateNewPet addNewPet = {addNewPet} />} />
-    <Route path="/pets/:id" element={ <PetDetails />} />
+    <Route path="/pets/:petId" element={ <PetDetails />} />
     <Route path="*" element={ <ErrorPage />} />
   </Routes>
   </Layout>

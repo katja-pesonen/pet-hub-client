@@ -22,13 +22,16 @@ function PetDetails() {
   const [needRefresh, setNeedRefresh] = useState(false)
 
   const fetchPet = async () => {
+    console.log(petId)
     const response = await apiWithToken(`pets/${petId}`)
-    setPet(response.data)
+    setPet(response)
   }
 
   useEffect(() => {
-    fetchPet()
-  }, [])
+    if (typeof petId !== 'undefined') {
+      fetchPet()
+    }
+  }, [petId])
 
  
   // useEffect(() => {                                
