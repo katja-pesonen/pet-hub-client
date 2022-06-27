@@ -45,6 +45,20 @@
 
 
 /* // Home page  */
+
+.welcome-header {
+  background-image: url('https://res.cloudinary.com/obliviate/image/upload/v1656364539/Pet-Hub/horse-running_lqpzhx.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
 .pet-card{
   background-color: rgba(255, 255, 255, 0.4);
   padding-bottom: 20px;

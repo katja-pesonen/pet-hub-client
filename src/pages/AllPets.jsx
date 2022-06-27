@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from "react";     
 import axios from "axios";
 import { Card, Image, Text, Badge, Button, Group, Box } from '@mantine/core';
-
+import { Link } from 'react-router-dom';
 
 
 function AllPets() {
@@ -19,15 +19,15 @@ function AllPets() {
   }, [] );  
  
   return (
+
+
     <div>
     <h2>Pets:</h2>
-    {/* <p>To see more information on a pet click on their image</p> */}
-
 
     <Box
         sx={{
           display: 'grid',
-          gridTemplate: '1fr / 1fr 1fr 1fr 1fr',
+          gridTemplate: '1fr / 1fr 1fr 1fr',
           gridAutoRows: '1fr',
           gap: '20px',
           margin: '20px',
@@ -44,7 +44,7 @@ function AllPets() {
         </Card.Section>
 
         <Group position="apart" style={{ marginBottom: 5, marginTop: 5 }}>
-          <Text weight={500}>{pet.name}</Text>
+          <Link to={`/pets/${pet._id}`}>{pet.name}</Link>
           <Badge color="yellow" variant="light">
           {pet.type}
           </Badge>
@@ -64,13 +64,16 @@ function AllPets() {
         </Button>
       </Card>
 
-      
     </div>
     ))}
 
-</Box>
-
+     </Box>
     </div>
+
+
+
+
+
   )
 }
 
