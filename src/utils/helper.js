@@ -9,7 +9,7 @@ import { BASE_API_URL } from './constants'
 export const apiBase =
   token =>
   async (endpoint, method = 'GET', payload) => {
-    const response = await fetch(`${BASE_API_URL}/api/${endpoint}`, {
+    const response = await fetch(`${BASE_API_URL}/api${endpoint}`, {
       method,
       headers: {
         'Content-Type': 'application/json',

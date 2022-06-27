@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from "react";     
 
 
-import { ActionIcon, Paper, Text, Title } from '@mantine/core'
+import { ActionIcon, Paper, Text, Title, Image} from '@mantine/core'
 import { useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Pencil, Trash } from 'tabler-icons-react'
@@ -23,7 +23,7 @@ function PetDetails() {
 
   const fetchPet = async () => {
     console.log(petId)
-    const response = await apiWithToken(`pets/${petId}`)
+    const response = await apiWithToken(`/pets/${petId}`)
     setPet(response)
   }
 
@@ -51,7 +51,7 @@ function PetDetails() {
   }, [needRefresh])
 
   const deletePet = async () => {
-    await fetch(`http://localhost:5005/pets/${petId}`, { method: 'DELETE' })
+    await fetch(`http://localhost:5005/api/pets/${petId}`, { method: 'DELETE' })
     navigate('/user/profile')
   }
 
@@ -69,6 +69,7 @@ function PetDetails() {
     <>
       <Paper key={pet._id} shadow='xs' p='md'>
         <Title order={2}>{pet.name}</Title>
+        <img src={pet.image} alt='pet' />
         <Text>{pet.type}</Text>
         <Text>{pet.age}</Text>
         <Text>{pet.description}</Text>

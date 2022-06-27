@@ -10,7 +10,7 @@ function AllPets() {
  
   useEffect(() => {                                
     axios
-      .get("http://localhost:5005/pets") 
+      .get("http://localhost:5005/api/pets") 
       .then((response) => {
         console.log('response.data', response.data);
         setPets(response.data)
