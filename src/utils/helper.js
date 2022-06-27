@@ -75,6 +75,10 @@ export const creatingPet = async (credentials ) => {
 
 
 
+export const getUser = async credentials => {
+  const response = await apiBase('user/profile', credentials)
+  return response
+}
 
 
 export const login = async credentials => {

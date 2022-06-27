@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from "react";     
 
 
-import { ActionIcon, Paper, Text, Title, Image} from '@mantine/core'
+import { ActionIcon, Paper, Text, Title } from '@mantine/core'
 import { useContext } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Pencil, Trash } from 'tabler-icons-react'
@@ -22,7 +22,7 @@ function PetDetails() {
   const [needRefresh, setNeedRefresh] = useState(false)
 
   const fetchPet = async () => {
-    console.log(petId)
+    // console.log(petId)
     const response = await apiWithToken(`/pets/${petId}`)
     setPet(response)
   }
