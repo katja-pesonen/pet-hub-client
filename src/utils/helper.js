@@ -37,16 +37,36 @@ export const authBase = async (endpoint, credentials) => {
 }
 
 // creating a pet POST
-export const petBase = async (endpoint, credentials) => {
-  const response = await fetch(`${BASE_API_URL}/pets/${endpoint}`, {
+export const petBase = (token) => async (endpoint, credentials) => {
+  const response = await fetch(`${BASE_API_URL}/api/pets/${endpoint}`, {
     method: 'POST',
     body: credentials,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   })
   const parsed = await response.json()
   console.log(parsed, "petCreation")
 
   return parsed
 }
+
+/*function petBase2(token) {
+  return async function(endpoint, credentials) {
+    const response = await fetch(`${BASE_API_URL}/api/pets/${endpoint}`, {
+      method: 'POST',
+      body: credentials,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    const parsed = await response.json()
+    console.log(parsed, "petCreation")
+  
+    return parsed
+  }
+}*/
+
 
 export const creatingPet = async (credentials ) => {
   const response = await petBase('create', credentials )

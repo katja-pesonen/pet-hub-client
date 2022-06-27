@@ -1,12 +1,16 @@
-    import React, { useState } from 'react'
+    import React, { useContext, useState } from 'react'
     import { Box, Button, Input, InputWrapper, Title } from '@mantine/core'
     import { useForm } from '@mantine/form'
     import { useNavigate } from 'react-router-dom'
     import { creatingPet } from '../utils/helper'
+import { SessionContext } from '../contexts/SessionContext'
+    
     
     
     function CreateNewPet() {
       const navigate = useNavigate()
+      const { petsWithToken } = useContext(SessionContext)
+
       const form = useForm({
         initialValues: {
           name: '',
@@ -23,7 +27,9 @@
             formData.append('values', JSON.stringify(newPet))
             formData.append('image', image)
          
-          const response = await creatingPet(formData) // 
+          const response = await petsWithToken(
+            '/create',
+            formData) // 
           console.log(response, 'createPet')
     
           if (response.status === 'KO') {

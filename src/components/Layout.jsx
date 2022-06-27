@@ -15,7 +15,10 @@ function Layout({ children }) {
       padding='md'
       navbar={
         <Navbar width={{ base: 230 }}   
-          style={{backgroundColor: '#367A7A'}} p='xs'>
+          style={{backgroundColor: '#367A7A',
+          position: 'sticky',
+          top: '0px'
+        }} p='xs'>
 
           <img src={logoPethub} alt='logo'/>
 

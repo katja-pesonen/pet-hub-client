@@ -22,7 +22,7 @@ const UpdatePetModal = ({ isModalOpen, setIsModalOpen, petId, pet, setNeedRefres
   }, [pet])
 
   const updatePet = async newValues => {
-    await fetch(`http://localhost:5005/pets/${petId}`, {
+    await fetch(`http://localhost:5005/api/pets/${petId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

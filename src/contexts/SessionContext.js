@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { apiBase, checkToken } from '../utils/helper'
+import { apiBase, checkToken, petBase } from '../utils/helper'
 
 const SessionContext = createContext()
 
@@ -8,6 +8,8 @@ const SessionContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   const apiWithToken = apiBase(token)
+  
+  const petsWithToken = petBase(token)
 
   const authenticateUser = responseToken => {
     console.log(responseToken, "response token")
@@ -42,7 +44,7 @@ const SessionContextProvider = ({ children }) => {
 
   return (
     <SessionContext.Provider
-      value={{ token, apiWithToken, isAuthenticated, authenticateUser, logout }}
+      value={{ token, apiWithToken, petsWithToken, isAuthenticated, authenticateUser, logout }}
     >
       {children}
     </SessionContext.Provider>
