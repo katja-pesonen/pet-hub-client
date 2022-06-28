@@ -1,7 +1,7 @@
 import { BASE_API_URL } from './constants'
 
 // export const fetchPets = async setter => {
-//   const response = await fetch('http://localhost:5005/pets')
+//   const response = await fetch(`${BASE_API_URL}/pets`)
 //   const parsed = await response.json()
 //   setter(parsed)
 // }

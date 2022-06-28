@@ -1,6 +1,7 @@
 import { Button, Input, InputWrapper, Modal, NumberInput } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { useEffect } from 'react'
+import { BASE_API_URL } from '../utils/constants'
 
 const UpdatePetModal = ({ isModalOpen, setIsModalOpen, petId, pet, setNeedRefresh }) => {
   const form = useForm({
@@ -22,7 +23,7 @@ const UpdatePetModal = ({ isModalOpen, setIsModalOpen, petId, pet, setNeedRefres
   }, [pet])
 
   const updatePet = async newValues => {
-    await fetch(`http://localhost:5005/api/pets/${petId}`, {
+    await fetch(`${BASE_API_URL}/api/pets/${petId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

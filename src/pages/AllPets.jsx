@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Image, Text, Badge, Button, Group, Box } from '@mantine/core';
 import { Link } from 'react-router-dom';
+import { BASE_API_URL } from '../utils/constants';
 
 
 function AllPets() {
@@ -10,7 +11,7 @@ function AllPets() {
  
   useEffect(() => {                                
     axios
-      .get("http://localhost:5005/api/pets") 
+      .get(`${BASE_API_URL}/api/pets`) 
       .then((response) => {
         console.log('response.data', response.data);
         setPets(response.data)

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from "react";    
 import { Link } from 'react-router-dom';
 import { SessionContext } from '../contexts/SessionContext'
+import { BASE_API_URL } from '../utils/constants';
 
 function HomePage() {
 
@@ -13,7 +14,7 @@ function HomePage() {
  
   useEffect(() => {                                
     axios
-      .get("http://localhost:5005/api/pets") 
+      .get(`${BASE_API_URL}/api/pets`) 
       .then((response) => {
         console.log('response.data', response.data);
         setPets(response.data)

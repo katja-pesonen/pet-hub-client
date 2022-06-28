@@ -9,6 +9,7 @@ import { Pencil, Trash } from 'tabler-icons-react'
 
 import UpdatePetModal from '../components/UpdatePetModal'
 import { SessionContext } from '../contexts/SessionContext'
+import { BASE_API_URL } from '../utils/constants';
 
 
 function PetDetails() {
@@ -36,7 +37,7 @@ function PetDetails() {
  
   // useEffect(() => {                                
   //   axios
-  //     .get("http://localhost:5005/pets/:petId") 
+  //     .get(`${BASE_API_URL}/pets/:petId`) 
   //     .then((response) => {
   //       setPet(response.data)
   //     });
@@ -51,7 +52,7 @@ function PetDetails() {
   }, [needRefresh])
 
   const deletePet = async () => {
-    await fetch(`http://localhost:5005/api/pets/${petId}`, { method: 'DELETE' })
+    await fetch(`${BASE_API_URL}/api/pets/${petId}`, { method: 'DELETE' })
     navigate('/user/profile')
   }
 
