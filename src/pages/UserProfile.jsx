@@ -5,6 +5,7 @@ import AllPets from './AllPets'
 import axios from 'axios';
 import { getUser } from '../utils/helper';
 import { SessionContext } from '../contexts/SessionContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -30,8 +31,8 @@ function UserProfile() {
     <h2>Welcome to your Profile Page</h2>
     <p>Here you can view your own pets, and add a new pet to your list.</p>
 
-    <Button><a href="/pets/create">Add a new pet</a></Button>
-
+    <Button><Link to={`/pets/create`}>Add a new pet</Link></Button>
+    
       <div>
 
       <Card.Section>

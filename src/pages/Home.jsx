@@ -47,7 +47,7 @@ function HomePage() {
                 </div>
              ))}    
         </div>
-        <button><a href='/login'>Login to see all pets</a></button>
+        <button><Link to={`/login`}>Login to see all pets</Link></button>
     </div>
 </div>
 
@@ -85,7 +85,8 @@ function HomePage() {
                 </div>
              ))}    
         </div>
-        <button><a href="/pets">Show all pets</a></button>
+        <button><Link to={`/pets`}>Show all pets</Link></button>
+        
     </div>
 </div>
 
