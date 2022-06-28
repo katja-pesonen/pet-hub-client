@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Input, InputWrapper, PasswordInput, Title } from '@mantine/core'
 import { useForm } from '@mantine/hooks'
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { SessionContext } from '../contexts/SessionContext'
 import { login } from '../utils/helper'
 
@@ -59,7 +59,7 @@ function LoginPage() {
     </Box>
     <br />
       <div>
-      <Button><a href="/signup">Don't have account yet? Signup</a></Button>
+      <Button><Link to={`/signup`}>Don't have account yet? Signup</Link></Button>
       </div>
     </div>
   )
