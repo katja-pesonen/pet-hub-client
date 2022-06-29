@@ -4,6 +4,7 @@ import axios from "axios";
 import { Card, Image, Text, Badge, Button, Group, Box } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { BASE_API_URL } from '../utils/constants';
+// import Searchbar from '../components/Searchbar';
 
 
 function AllPets() {
@@ -23,6 +24,9 @@ function AllPets() {
 
 
     <div>
+    {/* <div>
+       <Searchbar />
+    </div> */}
     <h2>Pets:</h2>
 
     <Box

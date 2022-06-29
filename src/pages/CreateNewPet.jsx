@@ -2,8 +2,7 @@
     import { Box, Button, Input, InputWrapper, Title } from '@mantine/core'
     import { useForm } from '@mantine/form'
     import { useNavigate } from 'react-router-dom'
-    import { creatingPet } from '../utils/helper'
-import { SessionContext } from '../contexts/SessionContext'
+    import { SessionContext } from '../contexts/SessionContext'
     
     
     

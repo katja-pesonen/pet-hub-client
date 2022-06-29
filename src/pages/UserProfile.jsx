@@ -1,11 +1,11 @@
-import { Card } from '@mantine/core'
 import React, { useContext, useEffect, useState } from 'react'
-import { Button } from '@mantine/core'
-import AllPets from './AllPets'
-import axios from 'axios';
-import { getUser } from '../utils/helper';
+// import AllPets from './AllPets'
+// import axios from 'axios';
+// import { getUser } from '../utils/helper';
 import { SessionContext } from '../contexts/SessionContext';
 import { Link } from 'react-router-dom';
+// import { Card, Image, Text, Badge, Group, Box } from '@mantine/core';
+import { Button } from '@mantine/core';
 
 
 
@@ -34,12 +34,9 @@ function UserProfile() {
     <Button><Link to={`/pets/create`}>Add a new pet</Link></Button>
     
       <div>
-
-      <Card.Section>
-         <AllPets />
-      </Card.Section>
-
+        <h2>Your Pets:</h2>
       </div>
+
     </div>
   )
 }

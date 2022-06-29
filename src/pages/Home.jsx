@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import horseImage from "../assets/horse-running.jpg"
 import axios from 'axios';
 import { useState, useEffect } from "react";    
 import { Link } from 'react-router-dom';
