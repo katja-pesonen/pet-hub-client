@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react'
-import { apiBase, checkToken, petBase } from '../utils/helper'
+import { apiBase, checkToken, petBase, petWithFileBase } from '../utils/helper'
 
 const SessionContext = createContext()
 
@@ -10,6 +10,7 @@ const SessionContextProvider = ({ children }) => {
   const apiWithToken = apiBase(token)
   
   const petsWithToken = petBase(token)
+  const petsWithFileWithToken = petWithFileBase(token)
 
   const authenticateUser = responseToken => {
     console.log(responseToken, "response token")
@@ -44,7 +45,7 @@ const SessionContextProvider = ({ children }) => {
 
   return (
     <SessionContext.Provider
-      value={{ token, apiWithToken, petsWithToken, isAuthenticated, authenticateUser, logout }}
+      value={{ token, apiWithToken, petsWithFileWithToken, petsWithToken, isAuthenticated, authenticateUser, logout }}
     >
       {children}
     </SessionContext.Provider>

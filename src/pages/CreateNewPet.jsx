@@ -8,7 +8,7 @@
     
     function CreateNewPet() {
       const navigate = useNavigate()
-      const { petsWithToken } = useContext(SessionContext)
+      const { petsWithFileWithToken } = useContext(SessionContext)
 
       const form = useForm({
         initialValues: {
@@ -26,9 +26,9 @@
             formData.append('values', JSON.stringify(newPet))
             formData.append('image', image)
          
-          const response = await petsWithToken(
+          const response = await petsWithFileWithToken(
             '/create',
-            formData) // 
+            formData) 
           console.log(response, 'createPet')
     
           if (response.status === 'KO') {
