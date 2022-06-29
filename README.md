@@ -6,11 +6,13 @@ Pet Hub is a fun website where you can view profiles of peoples pets, and upload
 
 ## User Stories
 
--  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+-  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist 
 -  **Signup:** As an anon I can sign up in the platform so that I can start saving my pets
 -  **Login:** As a user I can login to the platform so that I can see my pets
 -  **Logout:** As a user I can logout from the platform so no one else can use it
 -  **Add Pets** As a user I can add my pet so that I can share it with the community
+-  **Edit Pet** As a user I can edit my pet's profile
+-  **Delete Pet** As a user I can delete my pet's profile
 -  **List Pets** As a user I want to see a list of pets so that I view their profiles
 -  **Create a Comment** As a user I can create a comment on a pets profile
 
@@ -103,7 +105,8 @@ comment - String // required
 
 ## API Endpoints/Backend Routes
 
-- GET /auth/
+- GET /auth/verify
+- GET /
 - POST /auth/signup
   - body:
     - username
@@ -111,22 +114,30 @@ comment - String // required
     - password
 - POST /auth/login
   - body:
-    - username
+    - email
     - password
 - POST /auth/logout
   - body: (empty)
-- POST /user/me/favorite
-  - body:
-    - restaurantId
-- DELETE /user/me/favorite/:restaurantId
-  - body: (empty)
-- GET /restaurant
-- POST /restaurant
+- GET /user/profile
+  - body: id
+- GET /pets
+- GET /pets/userpets
+- POST /pets/create
   - body:
     - name
-    - phone
-    - address
-- GET /restaurant/:id
+    - type
+    - age
+    - image
+    - description
+    - owner
+- GET /pets/:id
+- PUT /pets/:id
+- DELETE /pets/:id
+  - body: (empty)
+- POST /pets/:id/comments
+  - body:
+    - comment
+    - author
 
   
 
