@@ -20,12 +20,14 @@ function PetDetails() {
   const [pet, setPet] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [needRefresh, setNeedRefresh] = useState(false)
+  const [comments, setComments] = useState([])
 
 
   const fetchPet = async () => {
     // console.log(petId)
     const response = await apiWithToken(`/pets/${petId}`)
     setPet(response)
+    // setComments(response.comments)
     console.log(response)
   }
 
@@ -33,7 +35,7 @@ function PetDetails() {
     if (typeof petId !== 'undefined') {
       fetchPet()
     }
-  }, [petId])
+  }, [petId, comments])
 
 
 
@@ -68,12 +70,14 @@ function PetDetails() {
         `${petId}/comments`,
         JSON.stringify(newComment)) 
       console.log(response, 'createComment')
+      setComments(...comments, response)
 
       if (response.status === 'KO') {
         throw new Error(response.message)
       }
 
-      navigate(`/pets/${petId}`)
+
+      // navigate(`/pets/${petId}`);
     } catch (error) {
       form.setErrors({ username: error.message })
     }
@@ -81,8 +85,21 @@ function PetDetails() {
 
 
   const handleSubmit = values => {
-    createComment(values)
+    console.log(values)
+    createComment(values);
+    values.comment = ''
+    navigate(`/pets/${petId}`)
+    // navigate(`/pets/`);
   }
+
+  // const handleSubmit = event => {
+  //   createComment(event);
+
+  //   // 👇 clear all input values in the form
+  //   event.target.reset();
+  // }
+
+
 
   if (!pet) {
     return <p>Loading...</p>
@@ -118,21 +135,17 @@ function PetDetails() {
 <br />
 
 
-    <ScrollArea style={{ height: 250, width: 800, backgroundColor: 'white'}}>
+    <ScrollArea style={{ height: 250, width: 800, backgroundColor: '#f3f3f3', borderRadius: 40}}>
        <Text weight={700} >Comments section:</Text>
        <Text>{ pet.comments && pet.comments.map( function(comments, i) {
           return (
             <div key={comments.comment + i}>
-            <h6>{comments.author}: </h6>
-              <p>{comments.comment}</p>
+            <p><span style={{ fontWeight: 500}}>{comments.author}: </span>{comments.comment}</p>
+             
             </div>
           )
        })
        }</Text>
-       <p>Charizard (Pokémon)
-Charizard description from Bulbapedia
-Charizard is a draconic, bipedal Pokémon. It is primarily orange with a cream underside from the chest to the tip of its tail. It has a long neck, small blue eyes, slightly raised nostrils, and two horn-like structures protruding from the back of its rectangular head. There are two fangs visible in the upper jaw when its mouth is closed. Two large wings with blue-green undersides sprout from its back, and a horn-like appendage juts out from the top of the third joint of each wing. A single wing-finger is visible through the center of each wing membrane. Charizard's arms are short and skinny compared to its robust belly, and each limb has three white claws. It has stocky legs with cream-colored soles on each of its plantigrade feet. The tip of its long, tapering tail burns with a sizable flame.
-As Mega Charizard X, its body and legs are more physically fit, though its arms remain thin. Its skin turns black with a sky-blue underside and soles. Two spikes with blue tips curve upward from the front and back of each shoulder, while the tips of its horns sharpen, turn blue, and curve slightly upward. Its brow and claws are larger, and its eyes are now red. It has two small, fin-like spikes under each horn and two more down its lower neck. The finger disappears from the wing membrane, and the lower edges are divided into large, rounded points. The third joint of each wing-arm is adorned with a claw-like spike. Mega Charizard X breathes blue flames out the sides of its mouth, and the flame on its tail now burns blue. It is said that its new power turns it black and creates more intense flames.</p>
     </ScrollArea>
 
 
@@ -141,6 +154,7 @@ As Mega Charizard X, its body and legs are more physically fit, though its arms 
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <TextInput
           required
+          value=''
           label="Comment"
           placeholder="Enter your comment here"
           {...form.getInputProps('comment')}
