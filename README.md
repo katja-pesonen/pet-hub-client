@@ -1,70 +1,158 @@
-# Getting Started with Create React App
+# Pet Hub
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Pet Hub is a fun website where you can view profiles of peoples pets, and upload your own pets too! Sign up & log in to add your furry friends to the site!
 
-In the project directory, you can run:
+## User Stories
 
-### `npm start`
+-  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+-  **Signup:** As an anon I can sign up in the platform so that I can start saving my pets
+-  **Login:** As a user I can login to the platform so that I can see my pets
+-  **Logout:** As a user I can logout from the platform so no one else can use it
+-  **Add Pets** As a user I can add my pet so that I can share it with the community
+-  **List Pets** As a user I want to see a list of pets so that I view their profiles
+-  **Create a Comment** As a user I can create a comment on a pets profile
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Backlog
 
-### `npm test`
+User profile:
+- user avatar/picture
+- see other users profile 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Pet profile:
+- likes on a pet
+- search function
+  
+# Client
 
-### `npm run build`
+## Routes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- / - Homepage
+- /auth/signup - Signup form
+- /auth/login - Login form
+- /api/pets/ - all pets page
+- /api/pets/:id - one pets profile page
+- /api/pets/create - create pet
+- /api/user/profile - users profile page
+- 404 - error page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Pages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Home Page (public)
+- Sign in Page (anon only)
+- Log in Page (anon only)
+- All pets page (user only)
+- My Profile Page (user only)
+- 404 Page (public)
 
-### `npm run eject`
+## Components
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Layout component
+- Search component
+- Update pet details modal
+- Button component
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Services
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Auth Service
+  - auth.login(user)
+  - auth.signup(user)
+  - auth.logout()
+  - auth.getUser() // synchronous
+- Pet Service
+  - Pet.list()
+  - Pet.create(data)
+  - Pet.detail(id)
+  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Server
 
-### Code Splitting
+## Models
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+User model
 
-### Analyzing the Bundle Size
+```
+username - String // required
+email - String // required & unique
+password - String // required
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Pet model
 
-### Making a Progressive Web App
+```
+owner - ObjectID<User> // required
+name - String // required
+type - String
+age - String
+description - String
+comments - [String]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Comments model
 
-### Advanced Configuration
+```
+author - ObjectID<User> // required
+comment - String // required
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## API Endpoints/Backend Routes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- GET /auth/
+- POST /auth/signup
+  - body:
+    - username
+    - email
+    - password
+- POST /auth/login
+  - body:
+    - username
+    - password
+- POST /auth/logout
+  - body: (empty)
+- POST /user/me/favorite
+  - body:
+    - restaurantId
+- DELETE /user/me/favorite/:restaurantId
+  - body: (empty)
+- GET /restaurant
+- POST /restaurant
+  - body:
+    - name
+    - phone
+    - address
+- GET /restaurant/:id
 
-### `npm run build` fails to minify
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Links
+
+### Trello/Figma
+
+[Link to your figma board](https://www.figma.com/file/bTnYu1tS0YwLHoOkEOQ1rW/Pet-App?node-id=0%3A1)
+
+[Link to your trello board](https://trello.com/b/hbYrvlFX/pet-hub-trello-board) 
+
+### Git
+
+The url to your repository and to your deployed project
+
+[Client repository Link](https://github.com/katja-pesonen/pet-hub-client)
+
+[Server repository Link](https://github.com/katja-pesonen/pet-hub-server)
+
+
+[Deploy Link](https://pet-hub-app.netlify.app/)
+
+[Backend Link](https://pet-hub-app.herokuapp.com)
+
+### Slides
+
+The url to your presentation slides
+
+[Slides Link](https://docs.google.com/presentation/d/1I72dnqW-gwcKugh6XmmJCPE2X9Yim8WNXiAAqIYrbtU/edit?usp=sharing)
