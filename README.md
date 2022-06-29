@@ -151,7 +151,7 @@ comment - String // required
 
 ### Git
 
-The url to your repository and to your deployed project
+The url to our repository and to our deployed project
 
 [Client repository Link](https://github.com/katja-pesonen/pet-hub-client)
 

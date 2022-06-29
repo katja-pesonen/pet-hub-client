@@ -62,7 +62,7 @@ function UserProfile() {
     {/* <div>
        <Searchbar />
     </div> */}
-    <h2>Pets:</h2>
+   
 
     <Box
         sx={{
