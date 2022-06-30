@@ -126,7 +126,7 @@ button {
 
 .pet-card h2 {
   font-size: 40px;
-  color: #3c3c3c;
+  color: #133D39  ;
 }
 .pet-card button{
   margin-right: 20px;
@@ -201,4 +201,86 @@ button {
 .allpets-div h2 {
   font-size: 40px;
   color: #133D39 ;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.profile-pets h2 {
+  font-size: 40px;
+  color: #133D39 ;
+}
+
+.hello-div {
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 40px 80px rgba(222, 119, 1, 0.2), 0px -40px 80px rgba(7, 131, 177, 0.4);
+  backdrop-filter: blur(12px);
+  color: white;
+  border-radius: 20px;
+  padding: 10px 40px 40px 40px;
+
+}
+
+.hello-div h1 {
+  font-size: 38px;
+  font-weight: 100;
+  margin: 20px 0 0 0;
+  color: #fcfcfc;
+}
+
+.hello-div h3 {
+  font-size: 48px;
+  font-weight: 500;
+  margin: 20px 0 0 0;
+}
+
+.hello-div p {
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+
+.pet-details {
+  
+
+}
+
+.pet-details h2 {
+  font-size: 40px;
+  color: #133D39 ;
+  margin: 0 40px 40px 40px;
+}
+
+.details-card {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 80px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding:  40px;
+
+}
+
+
+.details-card img{
+  border-radius: 40px ;
+  position: relative;
+  max-height: 800px;
+  object-fit: cover;
+  margin-top: 20;
+}
+
+.edit-delete {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }

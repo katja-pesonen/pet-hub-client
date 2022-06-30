@@ -93,7 +93,7 @@ function PetDetails() {
 
 
   if (!pet) {
-    return <p>Loading...</p>
+    return <h3>Loading...</h3>
   }
 
   return (
@@ -101,19 +101,24 @@ function PetDetails() {
     <h2>Pet Details Page</h2>
     
     <>
-      <Paper key={pet._id} shadow='xs' p='md'>
-        <Title order={2}>{pet.name}</Title>
+      <Paper className='details-card' key={pet._id} shadow='xs' p='md'>
+        
         <img src={pet.image} alt='pet' />
+        <Title order={2}>{pet.name}</Title>
         <Text>{pet.type}</Text>
-        <Text>{pet.age}</Text>
+        <Text>Age: {pet.age}</Text>
         <Text>{pet.description}</Text>
+        <div className='edit-delete'>
         <ActionIcon onClick={() => setIsModalOpen(true)}>
           <Pencil size={48} strokeWidth={2} color={'blue'} />
         </ActionIcon>
+        
         <ActionIcon onClick={handleDelete}>
-          <Trash size={48} strokeWidth={2} color={'#bf4058'} />
+          <Trash size={48} strokeWidth={2} color={'#bf4058'} margin={20} />
         </ActionIcon>
+        </div>
       </Paper>
+
       <UpdatePetModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
@@ -126,7 +131,14 @@ function PetDetails() {
 <br />
 
 
-    <ScrollArea style={{ height: 250, width: 800, backgroundColor: '#f3f3f3', borderRadius: 40}}>
+    <ScrollArea className='comments' style={{ 
+      height: 250, 
+      width: '100%', 
+      backgroundColor: '#f3f3f3', 
+      paddingTop: 40,
+      marginTop: 40,
+      marginBottom: 20,
+      borderRadius: 20}}>
        <Text weight={700} >Comments section:</Text>
        <Text>{ pet.comments && pet.comments.map( function(comments, i) {
           return (
