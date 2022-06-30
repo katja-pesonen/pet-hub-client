@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { SessionContext } from '../contexts/SessionContext'
 import { BASE_API_URL } from '../utils/constants';
+import { Button } from '@mantine/core';
 
 function HomePage() {
 
@@ -49,11 +50,24 @@ function HomePage() {
         {pets.map((pet) => (
                 <div className="polaroid" key={pet._id}>
                     <img src={pet.image} alt='Pet' style={{width: '100%'}}/>
-                    <div className="container"><Link to={'/login'}>{pet.name}</Link></div>                    
+                    <div className="container"><Link style={{
+                      textDecoration: 'none', 
+                      fontWeight: 500, 
+                      color: '#3c3c3c',
+                      fontSize: '20px',}}
+                      to={'/login'}>{pet.name}</Link></div>                    
                 </div>
              ))}    
         </div>
-        <button><Link to={`/login`}>Login to see all pets</Link></button>
+        <Button className='form-buttons' style={{
+          backgroundColor: '#E4842C',
+          borderRadius: '8px',
+          fontSize: '14px',
+          textDecoration: 'none',
+          boxShadow: '0px 20px 40px rgba(223, 106, 46, 0.3)',
+          color: 'white',
+          marginTop: '40px',
+          }}><Link to={`/login`} style={{textDecoration: 'none'}}>Login to see all pets</Link></Button>
     </div>
 </div>
 
@@ -87,11 +101,24 @@ function HomePage() {
         {pets.map((pet) => (
                 <div className="polaroid" key={pet._id}>
                     <img src={pet.image} alt='Pet' style={{width: '100%'}}/>
-                    <div className="container"><Link to={`/pets/${pet._id}`}>{pet.name}</Link></div>                    
+                    <div className="container"><Link style={{
+                      textDecoration: 'none', 
+                      fontWeight: 500, 
+                      color: '#3c3c3c',
+                      fontSize: '20px',}}
+                      to={`/pets/${pet._id}`}>{pet.name}</Link></div>                    
                 </div>
              ))}    
         </div>
-        <button><Link to={`/pets`}>Show all pets</Link></button>
+        <Button className='form-buttons' style={{
+          backgroundColor: '#E4842C',
+          borderRadius: '8px',
+          fontSize: '14px',
+          textDecoration: 'none',
+          boxShadow: '0px 20px 40px rgba(223, 106, 46, 0.3)',
+          color: 'white',
+          marginTop: '40px',
+          }}><Link to={`/pets`} style={{textDecoration: 'none'}}>Show all pets</Link></Button>
         
     </div>
 </div>
