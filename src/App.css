@@ -196,3 +196,9 @@ button {
   margin: 20px;
   padding: 50px;
 }
+
+
+.allpets-div h2 {
+  font-size: 40px;
+  color: #133D39 ;
+}

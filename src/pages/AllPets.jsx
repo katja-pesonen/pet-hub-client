@@ -23,11 +23,11 @@ function AllPets() {
   return (
 
 
-    <div>
+    <div className='allpets-div'>
     {/* <div>
        <Searchbar />
     </div> */}
-    <h2>Pets:</h2>
+    <h2>All Pets:</h2>
 
     <Box
         sx={{
@@ -49,8 +49,13 @@ function AllPets() {
         </Card.Section>
 
         <Group position="apart" style={{ marginBottom: 5, marginTop: 5 }}>
-          <Link to={`/pets/${pet._id}`}>{pet.name}</Link>
-          <Badge color="yellow" variant="light">
+          <Link style={{
+                      textDecoration: 'none', 
+                      fontWeight: 500, 
+                      color: '#3c3c3c',
+                      fontSize: '20px',}}
+                      to={`/pets/${pet._id}`}>{pet.name}</Link>
+          <Badge color="yellow" >
           {pet.type}
           </Badge>
         </Group>
@@ -61,10 +66,17 @@ function AllPets() {
 
         
 
-        {/* <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10}}>
-          Edit
+        <Button variant="light" fullWidth style={{ borderRadius: 10, marginTop: '20px', color: '#133D39'}}>
+          <Link style={{
+                      textDecoration: 'none', 
+                      fontWeight: 600,
+                      color: '#133D39',
+                      fontSize: '14px'}}
+          to={`/pets/${pet._id}`}>
+            Details
+          </Link>
         </Button>
-        <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10 }}>
+        {/* <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10 }}>
           Delete
         </Button> */}
       </Card>
