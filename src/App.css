@@ -35,7 +35,7 @@ main {
   
 }
 
-button  {
+button {
   width: 447px;
   height: 51px;
 
@@ -89,17 +89,28 @@ button  {
 /* // Home page  */
 
 .welcome-header {
-  background-image: url('https://res.cloudinary.com/obliviate/image/upload/v1656364539/Pet-Hub/horse-running_lqpzhx.jpg');
+  background-image: url('https://res.cloudinary.com/obliviate/image/upload/v1656593072/Pet-Hub/horse_lqscwo.png');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 300px;
-  color: antiquewhite;
+  border-radius: 40px 40px 0px 0px;
+  height: 360px;
+  color: #f3f3f3;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
+.welcome-header h1 {
+  font-size: 56px;
+  margin-bottom: 0px;
+}
+
+.welcome-header p {
+  font-size: 20px;
+}
 
 .pet-card{
   background-color: rgba(255, 255, 255, 0.4);
