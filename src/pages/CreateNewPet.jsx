@@ -18,8 +18,10 @@
           description: '',
         },
       })
+
       const [image, setImage] = useState()
     
+
       const createPet = async newPet => {
         try {
           const formData = new FormData()
@@ -34,28 +36,30 @@
           if (response.status === 'KO') {
             throw new Error(response.message)
           }
-    
           navigate('/user/profile')
+
         } catch (error) {
           form.setErrors({ username: error.message })
         }
       }
     
     
+
       const handleSubmit = values => {
         createPet(values)
       }
 
+
       return (
         <div>
-            <Box>
-          <Title>Create New Pet</Title>
-          <form onSubmit={form.onSubmit(handleSubmit)}  >
+          <Box>
+            <Title>Create New Pet</Title>
+             <form onSubmit={form.onSubmit(handleSubmit)}>
+
             <InputWrapper
               required
               label='Name'
-              description='Your pets name'
-            >
+              description='Your pets name'>
               <Input {...form.getInputProps('name')} />
             </InputWrapper>
     
@@ -63,8 +67,7 @@
             <InputWrapper
               required 
               label='Type'
-              description='Type of animal'
-            >
+              description='Type of animal'>
               <Input {...form.getInputProps('type')} />
             </InputWrapper>
     
@@ -87,10 +90,12 @@
     
     
             <Button type='submit'>Submit</Button>
+
           </form>
         </Box>
         </div>
       )
     }
 
+    
 export default CreateNewPet

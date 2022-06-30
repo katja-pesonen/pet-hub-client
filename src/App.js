@@ -16,13 +16,11 @@ import {useState} from 'react'
 function App() {
 
   const [pets, setPets] = useState([])
-  // console.log(req.payload)
 
     const addNewPet = (newPet) => {
       const updatedPets = [...pets, newPet];
       setPets(updatedPets);
     };
-
 
 
 
@@ -40,9 +38,11 @@ function App() {
     <Route path="/pets/:petId" element={ <PetDetails />} />
     <Route path="*" element={ <ErrorPage />} />
   </Routes>
-  </Layout>
+</Layout>
+
     </div>
   );
 }
+
 
 export default App;

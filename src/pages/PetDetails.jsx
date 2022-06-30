@@ -15,6 +15,7 @@ function PetDetails() {
 
   const { petId } = useParams()
   const navigate = useNavigate()
+
   const { apiWithToken, petsWithToken } = useContext(SessionContext)
 
   const [pet, setPet] = useState(null)
@@ -24,12 +25,11 @@ function PetDetails() {
 
 
   const fetchPet = async () => {
-    // console.log(petId)
     const response = await apiWithToken(`/pets/${petId}`)
     setPet(response)
-    // setComments(response.comments)
     console.log(response)
   }
+
 
   useEffect(() => {
     if (typeof petId !== 'undefined') {
@@ -46,14 +46,18 @@ function PetDetails() {
     }
   }, [needRefresh])
 
+
+
   const deletePet = async () => {
     await fetch(`${BASE_API_URL}/api/pets/${petId}`, { method: 'DELETE' })
     navigate('/user/profile')
   }
 
+
   const handleDelete = () => {
     deletePet()
   }
+
 
 
   // Create Comment: 
@@ -63,12 +67,12 @@ function PetDetails() {
     },
   });
  
+
   const createComment = async newComment => {
     try {
       const response = await petsWithToken(
         `${petId}/comments`,
         JSON.stringify(newComment)) 
-      // console.log(response, 'createComment')
       setComments(...comments, response)
 
       if (response.status === 'KO') {
@@ -82,7 +86,6 @@ function PetDetails() {
   
 
   const handleSubmit = values => {
-    // console.log(values)
     createComment(values);
     values.comment = ''
     navigate(`/pets/${petId}`)
@@ -90,33 +93,35 @@ function PetDetails() {
 
 
 
-
-
   if (!pet) {
     return <h3>Loading...</h3>
   }
 
+
   return (
     <div className='pet-details'>
-    <h2>Pet Details Page</h2>
+      <h2>Pet Details Page</h2>
     
     <>
       <Paper className='details-card' key={pet._id} shadow='xs' p='md'>
         
         <img src={pet.image} alt='pet' />
+
         <Title order={2}>{pet.name}</Title>
         <Text>{pet.type}</Text>
         <Text>Age: {pet.age}</Text>
         <Text>{pet.description}</Text>
+
         <div className='edit-delete'>
-        <ActionIcon onClick={() => setIsModalOpen(true)}>
-          <Pencil size={48} strokeWidth={2} color={'blue'} />
-        </ActionIcon>
+          <ActionIcon onClick={() => setIsModalOpen(true)}>
+            <Pencil size={48} strokeWidth={2} color={'blue'} />
+          </ActionIcon>
         
-        <ActionIcon onClick={handleDelete}>
-          <Trash size={48} strokeWidth={2} color={'#bf4058'} margin={20} />
-        </ActionIcon>
+          <ActionIcon onClick={handleDelete}>
+            <Trash size={48} strokeWidth={2} color={'#bf4058'} margin={20} />
+          </ActionIcon>
         </div>
+
       </Paper>
 
       <UpdatePetModal
@@ -130,7 +135,6 @@ function PetDetails() {
     <div>
 <br />
 
-
     <ScrollArea className='comments' style={{ 
       height: 250, 
       width: '100%', 
@@ -140,11 +144,11 @@ function PetDetails() {
       marginBottom: 20,
       borderRadius: 20}}>
        <Text weight={700} >Comments section:</Text>
+
        <Text>{ pet.comments && pet.comments.map( function(comments, i) {
           return (
             <div key={comments.comment + i}>
-            <p><span style={{ fontWeight: 500}}>{comments.author}: </span>{comments.comment}</p>
-             
+              <p><span style={{ fontWeight: 500}}>{comments.author}: </span>{comments.comment}</p>
             </div>
           )
        })
@@ -160,20 +164,19 @@ function PetDetails() {
           value=''
           label="Comment"
           placeholder="Enter your comment here"
-          {...form.getInputProps('comment')}
-        />
+          {...form.getInputProps('comment')}/>
 
         <Group position="right" mt="md">
           <Button type="submit">Submit</Button>
         </Group>
+
       </form>
     </Box>
 
-    </div>
+     </div>
     </div>
   )
-
-
 }
+
 
 export default PetDetails

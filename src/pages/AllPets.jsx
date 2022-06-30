@@ -4,10 +4,11 @@ import axios from "axios";
 import { Card, Image, Text, Badge, Button, Group, Box } from '@mantine/core';
 import { Link } from 'react-router-dom';
 import { BASE_API_URL } from '../utils/constants';
-// import Searchbar from '../components/Searchbar';
+
 
 
 function AllPets() {
+
   const [pets, setPets] = useState([]);
  
   useEffect(() => {                                
@@ -17,17 +18,13 @@ function AllPets() {
         console.log('response.data', response.data);
         setPets(response.data)
       });
-    
   }, [] );  
- 
+
+
   return (
 
-
     <div className='allpets-div'>
-    {/* <div>
-       <Searchbar />
-    </div> */}
-    <h2>All Pets:</h2>
+      <h2>All Pets:</h2>
 
     <Box
         sx={{
@@ -44,6 +41,7 @@ function AllPets() {
       <Card style={{ margin: 28, borderRadius: 20 }} 
       shadow="sm" 
       p="lg">
+
         <Card.Section>
           <Image src={pet.image} height={280} alt="pet pic" />
         </Card.Section>
@@ -56,15 +54,14 @@ function AllPets() {
                       fontSize: '20px',}}
                       to={`/pets/${pet._id}`}>{pet.name}</Link>
           <Badge color="yellow" >
-          {pet.type}
+            {pet.type}
           </Badge>
         </Group>
 
         <Text size="sm" style={{ color: 'black', lineHeight: 1.5 }}>
-        Age: {pet.age}
+          Age: {pet.age}
         </Text>
 
-        
 
         <Button variant="light" fullWidth style={{ borderRadius: 10, marginTop: '20px', color: '#133D39'}}>
           <Link style={{
@@ -76,9 +73,6 @@ function AllPets() {
             Details
           </Link>
         </Button>
-        {/* <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10 }}>
-          Delete
-        </Button> */}
       </Card>
 
     </div>
@@ -86,12 +80,8 @@ function AllPets() {
 
      </Box>
     </div>
-
-
-
-
-
   )
 }
+
 
 export default AllPets

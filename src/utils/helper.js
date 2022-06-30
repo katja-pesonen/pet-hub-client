@@ -1,10 +1,5 @@
 import { BASE_API_URL } from './constants'
 
-// export const fetchPets = async setter => {
-//   const response = await fetch(`${BASE_API_URL}/pets`)
-//   const parsed = await response.json()
-//   setter(parsed)
-// }
 
 export const apiBase =
   token =>
@@ -22,6 +17,7 @@ export const apiBase =
     return parsed
   }
 
+
 export const authBase = async (endpoint, credentials) => {
   const response = await fetch(`${BASE_API_URL}/auth/${endpoint}`, {
     method: 'POST',
@@ -35,6 +31,7 @@ export const authBase = async (endpoint, credentials) => {
 
   return parsed
 }
+
 
 export const petBase = (token) => async (endpoint, credentials) => {
   const response = await fetch(`${BASE_API_URL}/api/pets/${endpoint}`, {
@@ -51,6 +48,7 @@ export const petBase = (token) => async (endpoint, credentials) => {
   return parsed
 }
 
+
 // creating a pet POST
 export const petWithFileBase = (token) => async (endpoint, credentials) => {
   const response = await fetch(`${BASE_API_URL}/api/pets/${endpoint}`, {
@@ -66,28 +64,12 @@ export const petWithFileBase = (token) => async (endpoint, credentials) => {
   return parsed
 }
 
-/*function petBase2(token) {
-  return async function(endpoint, credentials) {
-    const response = await fetch(`${BASE_API_URL}/api/pets/${endpoint}`, {
-      method: 'POST',
-      body: credentials,
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    const parsed = await response.json()
-    console.log(parsed, "petCreation")
-  
-    return parsed
-  }
-}*/
 
 
 export const creatingPet = async (credentials ) => {
   const response = await petBase('create', credentials )
   return response
 }
-
 
 
 export const getUser = async credentials => {
@@ -101,10 +83,12 @@ export const login = async credentials => {
   return response
 }
 
+
 export const signup = async credentials => {
   const response = await authBase('signup', credentials)
   return response
 }
+
 
 export const checkToken = async token => {
   const response = await fetch(`${BASE_API_URL}/auth/verify`, {

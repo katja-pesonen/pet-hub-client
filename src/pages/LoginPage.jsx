@@ -8,8 +8,10 @@ import { login } from '../utils/helper'
 
 
 function LoginPage() {
+
   const navigate = useNavigate()
   const { authenticateUser } = useContext(SessionContext)
+
   const form = useForm({
     initialValues: {
       email: '',
@@ -17,12 +19,15 @@ function LoginPage() {
     },
   })
 
+
   const logUser = async credentials => {
     try {
       const response = await login(credentials)
       console.log(response)
+
       if (response.status === 'KO') {
         throw new Error(response.message)
+
       } else {
         authenticateUser(response.token)
         navigate("/user/profile")
@@ -37,21 +42,20 @@ function LoginPage() {
     logUser(values)
   }
 
+
   return (
     <div className='login-div'>
-    <Box style={{
-          width: '80%'
-          }}>
+    <Box style={{ width: '80%' }}>
       <Title>Login Page</Title>
 
       <br />
       
       <form onSubmit={form.onSubmit(handleSubmit)}>
+
         <InputWrapper
           required
           label='Email'
-          description='Enter your email'
-        >
+          description='Enter your email'>
           <Input {...form.getInputProps('email')} />
         </InputWrapper>
 
@@ -66,6 +70,7 @@ function LoginPage() {
           borderRadius: '8px',
           color: 'white',
           }} type='submit'>Login</Button>
+
       </form>
     </Box>
     <br />
@@ -75,5 +80,6 @@ function LoginPage() {
     </div>
   )
 }
+
 
 export default LoginPage

@@ -3,6 +3,7 @@ import { useForm } from '@mantine/form'
 import { useEffect } from 'react'
 import { BASE_API_URL } from '../utils/constants'
 
+
 const UpdatePetModal = ({ isModalOpen, setIsModalOpen, petId, pet, setNeedRefresh }) => {
   const form = useForm({
     initialValues: {
@@ -13,6 +14,7 @@ const UpdatePetModal = ({ isModalOpen, setIsModalOpen, petId, pet, setNeedRefres
     },
   })
 
+
   useEffect(() => {
     form.setValues({
       name: pet.name,
@@ -21,6 +23,8 @@ const UpdatePetModal = ({ isModalOpen, setIsModalOpen, petId, pet, setNeedRefres
       description: pet.description,
     })
   }, [pet])
+
+
 
   const updatePet = async newValues => {
     await fetch(`${BASE_API_URL}/api/pets/${petId}`, {
@@ -38,25 +42,33 @@ const UpdatePetModal = ({ isModalOpen, setIsModalOpen, petId, pet, setNeedRefres
     updatePet(values)
   }
 
+
   return (
     <Modal opened={isModalOpen} onClose={() => setIsModalOpen(false)} title='Update pet'>
       <form onSubmit={form.onSubmit(handleSubmit)}>
+
         <InputWrapper required label='Name' description='The name of the pet'>
           <Input {...form.getInputProps('name')} />
         </InputWrapper>
+
         <InputWrapper required label='Type' description='The type of animal'>
           <Input {...form.getInputProps('type')} />
         </InputWrapper>
+
         <InputWrapper required label='Age' description='The age of your pet'>
           <NumberInput precision={2} min='0' {...form.getInputProps('age')} />
         </InputWrapper>
+
         <InputWrapper required label='Description' description='Tell us something about your pet'>
           <Input {...form.getInputProps('description')} />
         </InputWrapper>
+
         <Button type='submit'>Update</Button>
+        
       </form>
     </Modal>
   )
 }
+
 
 export default UpdatePetModal

@@ -4,25 +4,24 @@ import { NavLink } from 'react-router-dom'
 import logoPethub from '../assets/PetHubLogo.png';
 import { SessionContext } from '../contexts/SessionContext'
 import { useContext } from 'react'
-import bgImage from '../assets/signup.png';
+
 
 
 function Layout({ children }) {
   const { isAuthenticated, logout } = useContext(SessionContext)
 
   return (
-    // <div>Layout</div>
+
      <AppShell className=''
       padding='md'
       navbar={
+
         <Navbar className='navbar'
-        width={{ base: 230 }}   
+          width={{ base: 230 }}   
           style={{
-            // backgroundColor: '#367A7A',
-          
-          position: 'sticky',
-          top: '0px'
-        }} p='xs'>
+            position: 'sticky',
+            top: '0px'
+          }} p='xs'>
 
           <img src={logoPethub} alt='logo'/>
           <br />
@@ -33,8 +32,7 @@ function Layout({ children }) {
             <Anchor className='navbar-links'
                 component={NavLink}
                 to='/'
-                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
-              >
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}>
                 HOME
               </Anchor>
 
@@ -43,8 +41,7 @@ function Layout({ children }) {
               <Anchor className='navbar-links'
                 component={NavLink}
                 to='/login'
-                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
-              >
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}>
                 LOGIN
               </Anchor>
 
@@ -53,22 +50,22 @@ function Layout({ children }) {
               <Anchor className='navbar-links'
                 component={NavLink}
                 to='/signup'
-                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
-              >
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}>
                 SIGNUP
               </Anchor>
               <br />
 
               </>
+
           ) : (
+
             <>
-            <br />
+              <br />
 
               <Anchor className='navbar-links'
                 component={NavLink}
                 to='/'
-                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
-              >
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}>
                 HOME
               </Anchor>
 
@@ -77,8 +74,7 @@ function Layout({ children }) {
               <Anchor className='navbar-links'
                 component={NavLink}
                 to='/pets'
-                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
-              >
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}>
                 ALL PETS
               </Anchor>
 
@@ -87,8 +83,7 @@ function Layout({ children }) {
               <Anchor className='navbar-links'
                 component={NavLink}
                 to='/user/profile'
-                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
-              >
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}>
                 MY PROFILE
               </Anchor>
 
@@ -96,13 +91,11 @@ function Layout({ children }) {
               <br />
               <br />
  
-
               <Anchor className='navbar-links'
                 component={NavLink}
                 to='/'
                 style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
-                onClick={logout}
-              >
+                onClick={logout}>
                 LOGOUT
               </Anchor>
               </>
@@ -112,9 +105,6 @@ function Layout({ children }) {
 
       styles={{
         main: {
-          // backgroundColor: '#53e1da',
-          
-
         },
       }}
     >
