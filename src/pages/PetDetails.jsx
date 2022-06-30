@@ -68,7 +68,7 @@ function PetDetails() {
       const response = await petsWithToken(
         `${petId}/comments`,
         JSON.stringify(newComment)) 
-      console.log(response, 'createComment')
+      // console.log(response, 'createComment')
       setComments(...comments, response)
 
       if (response.status === 'KO') {
@@ -82,7 +82,7 @@ function PetDetails() {
   
 
   const handleSubmit = values => {
-    console.log(values)
+    // console.log(values)
     createComment(values);
     values.comment = ''
     navigate(`/pets/${petId}`)

@@ -61,12 +61,12 @@ function AllPets() {
 
         
 
-        <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10}}>
+        {/* <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10}}>
           Edit
         </Button>
         <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10 }}>
           Delete
-        </Button>
+        </Button> */}
       </Card>
 
     </div>

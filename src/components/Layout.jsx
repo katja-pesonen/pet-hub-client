@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import logoPethub from '../assets/PetHubLogo.png';
 import { SessionContext } from '../contexts/SessionContext'
 import { useContext } from 'react'
+import bgImage from '../assets/signup.png';
 
 
 function Layout({ children }) {
@@ -93,7 +94,9 @@ function Layout({ children }) {
 
       styles={{
         main: {
-          backgroundColor: '#53e1da',
+          // backgroundColor: '#53e1da',
+          
+
         },
       }}
     >

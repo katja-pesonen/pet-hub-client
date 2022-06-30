@@ -10,6 +10,7 @@ import { BASE_API_URL } from '../utils/constants';
 
 
 
+
 function UserProfile() {
 
   const { apiWithToken, token } = useContext(SessionContext)
@@ -43,6 +44,9 @@ function UserProfile() {
       });
     
   }, [] );  
+
+
+  
 
 
   return (
@@ -96,12 +100,12 @@ function UserProfile() {
 
         
 
-        <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10}}>
+        {/* <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10}}>
           Edit
         </Button>
         <Button variant="light" color="blue" fullWidth style={{ margin: 14, borderRadius: 10 }}>
           Delete
-        </Button>
+        </Button> */}
       </Card>
 
     </div>

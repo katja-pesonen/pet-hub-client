@@ -25,7 +25,7 @@ function HomePage() {
 
   
   if (!pets) {
-    return <p>Loading...</p>
+    return <h2>Loading...</h2>
   }
 
   return (

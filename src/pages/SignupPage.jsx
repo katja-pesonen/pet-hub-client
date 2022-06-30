@@ -36,9 +36,12 @@ function SignupPage() {
   }
 
   return (
-    <div>
+    <div className='login-div'>
         <Box>
       <Title>Signup Page</Title>
+
+      <br />
+      
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <InputWrapper
           required
@@ -62,6 +65,8 @@ function SignupPage() {
           required label='Password' description='Please create a password'>
           <PasswordInput {...form.getInputProps('password')} />
         </InputWrapper>
+
+        <br />
 
 
         <Button type='submit'>Submit</Button>
