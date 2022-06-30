@@ -39,7 +39,9 @@ function LoginPage() {
 
   return (
     <div className='login-div'>
-    <Box>
+    <Box style={{
+          width: '80%'
+          }}>
       <Title>Login Page</Title>
 
       <br />
@@ -59,12 +61,16 @@ function LoginPage() {
 
         <br />
         
-        <Button type='submit'>Login</Button>
+        <Button className='form-buttons' style={{
+          backgroundColor: '#E4842C',
+          borderRadius: '8px',
+          color: 'white',
+          }} type='submit'>Login</Button>
       </form>
     </Box>
     <br />
       <div>
-      <Button><Link to={`/signup`}>Don't have account yet? Signup</Link></Button>
+      <Link style={{color: '#535353'}} to={`/signup`}>Don't have account yet? Signup</Link>
       </div>
     </div>
   )

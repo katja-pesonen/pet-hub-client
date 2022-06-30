@@ -30,6 +30,19 @@ main {
 }
 
 
+.navbar {
+  background: linear-gradient(173.01deg, #3B7979 5.45%, #245745 54.87%, #0D3535 104.28%);
+  
+}
+
+button  {
+  width: 447px;
+  height: 51px;
+
+  background: #DF6A2E;
+  border-radius: 8px;
+}
+
 
 .App-logo {
   height: 40vmin;

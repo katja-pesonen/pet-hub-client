@@ -37,7 +37,9 @@ function SignupPage() {
 
   return (
     <div className='login-div'>
-        <Box>
+        <Box style={{
+          width: '80%'
+          }}>
       <Title>Signup Page</Title>
 
       <br />
@@ -48,7 +50,9 @@ function SignupPage() {
           label='Username'
           description='Create a username'
         >
-          <Input {...form.getInputProps('username')} />
+          <Input style={{
+            borderRadius: '8px',
+          }} {...form.getInputProps('username')} />
         </InputWrapper>
 
 
@@ -57,19 +61,27 @@ function SignupPage() {
           label='Email'
           description='Please enter your email'
         >
-          <Input {...form.getInputProps('email')} />
+          <Input style={{
+            borderRadius: '8px',
+          }} {...form.getInputProps('email')} />
         </InputWrapper>
 
 
         <InputWrapper 
           required label='Password' description='Please create a password'>
-          <PasswordInput {...form.getInputProps('password')} />
+          <PasswordInput style={{
+            borderRadius: '8px',
+          }}  {...form.getInputProps('password')} />
         </InputWrapper>
 
         <br />
 
 
-        <Button type='submit'>Submit</Button>
+        <Button style={{
+          backgroundColor: '#E4842C',
+          borderRadius: '8px',
+          color: 'white',
+          }} type='submit'>Submit</Button>
       </form>
     </Box>
     </div>

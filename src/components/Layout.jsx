@@ -15,77 +15,95 @@ function Layout({ children }) {
      <AppShell className=''
       padding='md'
       navbar={
-        <Navbar width={{ base: 230 }}   
-          style={{backgroundColor: '#367A7A',
+        <Navbar className='navbar'
+        width={{ base: 230 }}   
+          style={{
+            // backgroundColor: '#367A7A',
+          
           position: 'sticky',
           top: '0px'
         }} p='xs'>
 
           <img src={logoPethub} alt='logo'/>
+          <br />
 
           {!isAuthenticated ? (
             <>
 
-            <Anchor
+            <Anchor className='navbar-links'
                 component={NavLink}
                 to='/'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
               >
                 HOME
               </Anchor>
 
-              <Anchor
+              <br />
+
+              <Anchor className='navbar-links'
                 component={NavLink}
                 to='/login'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
               >
-                Login
+                LOGIN
               </Anchor>
 
-              <Anchor
+              <br />
+
+              <Anchor className='navbar-links'
                 component={NavLink}
                 to='/signup'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
               >
-                Signup
+                SIGNUP
               </Anchor>
+              <br />
 
               </>
           ) : (
             <>
+            <br />
 
-              <Anchor
+              <Anchor className='navbar-links'
                 component={NavLink}
                 to='/'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
               >
                 HOME
               </Anchor>
 
-              <Anchor
+              <br />
+
+              <Anchor className='navbar-links'
                 component={NavLink}
                 to='/pets'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
               >
-                All Pets Page
+                ALL PETS
               </Anchor>
 
-              <Anchor
+              <br />
+
+              <Anchor className='navbar-links'
                 component={NavLink}
                 to='/user/profile'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
               >
-                My Profile
+                MY PROFILE
               </Anchor>
 
+              <br />
+              <br />
+              <br />
+ 
 
-              <Anchor
+              <Anchor className='navbar-links'
                 component={NavLink}
                 to='/'
-                style={({ isActive }) => (isActive ? { color: 'black' } : undefined)}
+                style={({ isActive }) => (isActive ? { color: 'orange' } : { color: 'white' })}
                 onClick={logout}
               >
-                Logout
+                LOGOUT
               </Anchor>
               </>
           )}
