@@ -21,6 +21,13 @@ function HomePage() {
     
   }, [] );  
 
+
+
+  
+  if (!pets) {
+    return <p>Loading...</p>
+  }
+
   return (
     <div>
     {!isAuthenticated ? (

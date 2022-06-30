@@ -65,7 +65,6 @@ function PetDetails() {
  
   const createComment = async newComment => {
     try {
-     
       const response = await petsWithToken(
         `${petId}/comments`,
         JSON.stringify(newComment)) 
@@ -75,29 +74,21 @@ function PetDetails() {
       if (response.status === 'KO') {
         throw new Error(response.message)
       }
-
-
-      // navigate(`/pets/${petId}`);
     } catch (error) {
       form.setErrors({ username: error.message })
     }
   }
 
+  
 
   const handleSubmit = values => {
     console.log(values)
     createComment(values);
     values.comment = ''
     navigate(`/pets/${petId}`)
-    // navigate(`/pets/`);
   }
 
-  // const handleSubmit = event => {
-  //   createComment(event);
 
-  //   // 👇 clear all input values in the form
-  //   event.target.reset();
-  // }
 
 
 
