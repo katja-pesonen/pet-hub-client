@@ -1,12 +1,11 @@
 import React from 'react'
-import errorPic from '../assets/ouch-emoji.png';
+import errorPic from '../assets/404.png';
 
 function ErrorPage() {
+  
   return (
     <div>
-        <h2>404</h2>
-        <h2>Sorry, page not found!</h2>
-        <img src={errorPic} width='60' alt='error pic'/>
+        <img src={errorPic} width='800' alt='404 - Sorry, page not found!'/>
     </div>
   )
 }
