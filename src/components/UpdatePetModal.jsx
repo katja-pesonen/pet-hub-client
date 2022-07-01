@@ -63,7 +63,7 @@ const UpdatePetModal = ({ isModalOpen, setIsModalOpen, petId, pet, setNeedRefres
           <Input {...form.getInputProps('description')} />
         </InputWrapper>
 
-        <Button type='submit'>Update</Button>
+        <Button style={{ backgroundColor: '#E4842C' }} type='submit'>Update</Button>
         
       </form>
     </Modal>

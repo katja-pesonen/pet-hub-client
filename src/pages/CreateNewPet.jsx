@@ -51,8 +51,8 @@
 
 
       return (
-        <div>
-          <Box>
+        <div className='login-div'>
+          <Box style={{ width: '80%' }}>
             <Title>Create New Pet</Title>
              <form onSubmit={form.onSubmit(handleSubmit)}>
 
@@ -87,9 +87,14 @@
                label='Image' description='Upload an image'>
               <Input type="file" name="image" accept=".jpg, .png" onChange={(event) => setImage(event.target.files[0])} />
             </InputWrapper>
+
+            <br />    
     
-    
-            <Button type='submit'>Submit</Button>
+            <Button style={{
+          backgroundColor: '#E4842C',
+          borderRadius: '8px',
+          color: 'white',
+          }} type='submit'>Submit</Button>
 
           </form>
         </Box>

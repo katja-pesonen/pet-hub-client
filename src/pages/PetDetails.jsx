@@ -142,8 +142,9 @@ function PetDetails() {
       paddingTop: 40,
       marginTop: 40,
       marginBottom: 20,
-      borderRadius: 20}}>
-       <Text weight={700} >Comments section:</Text>
+      borderRadius: 20,
+      }}>
+       <Text weight={700} style={{ fontSize: 20, color: '#3c3c3c'}}>Comments section:</Text>
 
        <Text>{ pet.comments && pet.comments.map( function(comments, i) {
           return (
@@ -167,7 +168,7 @@ function PetDetails() {
           {...form.getInputProps('comment')}/>
 
         <Group position="right" mt="md">
-          <Button type="submit">Submit</Button>
+          <Button style={{ backgroundColor: '#E4842C' }} type="submit">Submit</Button>
         </Group>
 
       </form>
